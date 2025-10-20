@@ -1,1 +1,95 @@
+<!doctype html>
+<html lang="uk">
+<script src="Script.js"></script>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Gartic Phone AI</title>
+<style>
+:root{--bg:#0f1724;--card:#0b1220;--accent:#6ee7b7;--muted:#94a3b8;--danger:#fb7185}
+*{box-sizing:border-box;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial}
+html,body{height:100%;margin:0;background:linear-gradient(180deg,#071024 0%,#07142a 100%);color:#e6eef8}
+.app{max-width:1100px;margin:24px auto;padding:18px}
+header{display:flex;align-items:center;gap:12px}
+header h1{margin:0;font-size:20px}
 
+
+.layout{display:grid;grid-template-columns:320px 1fr;gap:16px;margin-top:16px}
+
+
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.04);padding:12px;border-radius:10px}
+
+
+/* left sidebar */
+.sidebar .room{display:flex;justify-content:space-between;align-items:center;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.01)}
+.players{margin-top:12px}
+.player{display:flex;align-items:center;gap:8px;padding:8px;border-radius:6px}
+.avatar{width:36px;height:36px;border-radius:6px;background:linear-gradient(135deg,var(--accent),#60a5fa);display:flex;align-items:center;justify-content:center;color:#05202a;font-weight:700}
+
+
+/* main area */
+.topbar{display:flex;gap:8px;align-items:center;justify-content:space-between}
+.canvas-wrap{display:grid;grid-template-columns:1fr 260px;gap:12px;margin-top:12px}
+canvas{width:100%;height:500px;background:#fff;border-radius:8px;display:block}
+.tools{display:flex;gap:6px;flex-wrap:wrap;padding:8px}
+.btn{background:var(--card);color:var(--accent);border:1px solid rgba(110,231,183,0.08);padding:8px 10px;border-radius:8px;cursor:pointer}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)}
+
+
+.panel{height:500px;overflow:auto}
+.chat{display:flex;flex-direction:column;height:100%}
+.messages{flex:1;overflow:auto;padding:8px}
+.message{margin-bottom:8px}
+.controls{display:flex;gap:8px;padding:8px}
+
+
+.status{margin-top:8px;font-size:14px;color:var(--muted)}
+
+
+/* mobile */
+@media (max-width:880px){.layout{grid-template-columns:1fr}.canvas-wrap{grid-template-columns:1fr}.panel{height:auto}}
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+<h1>Gartic Phone AI</h1>
+
+</header>
+
+
+<div class="layout">
+<aside class="sidebar card">
+<div class="room">
+<div>
+<div style="font-weight:700">Room: <span id="roomCode">ABCD</span></div>
+<div style="font-size:12px;color:var(--muted)">Кількість гравців: <span id="playerCount">1</span></div>
+</div>
+<button id="addBot" class="btn">Додати гравця</button>
+</div>
+
+
+<div class="players" id="playersList">
+<!-- players go here -->
+</div>
+
+
+<div style="margin-top:12px">
+<label style="font-size:13px;color:var(--muted)">Таймер (сек):</label>
+<input id="timerInput" type="number" value="45" min="5" style="width:100%;margin-top:6px;padding:8px;border-radius:6px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit" />
+</div>
+
+
+<div style="margin-top:10px;display:flex;gap:8px">
+<button id="startBtn" class="btn">Старт раунду</button>
+<button id="resetBtn" class="btn ghost">Скинути</button>
+</div>
+
+
+<div class="status" style="margin-top:10px">Фаза: <strong id="phaseName">Лобі</strong></div>
+</aside>
+
+
+<main>
+<div class="card">
+</html>
